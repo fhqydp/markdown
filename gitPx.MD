@@ -375,12 +375,11 @@
 	# 3. github
 	$ git remote add origin https://github.com/fhqydp/markdown.git
 	$ git push -u origin master
-
+	https://github.com/fhqydp/markdown/blob/master/gitPx.MD
 
 四. 冲突处理
 -
-
-
+上传测试
 
 五. 分支管理
 -
