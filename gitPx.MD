@@ -61,7 +61,7 @@
      　　git config --list
     注意：git  config --global 参数，有了这个参数表示你这台机器上所有的git仓库都会使用这个配置，当然你也可以对某个仓库指定不同的用户名和邮箱
 	
-    zhaoqf@zhaoqf-HP MINGW64 /d/git/repository  
+    username@hostname MINGW64 /d/git/repository  
     $ git config --list  
     core.symlinks=false  
     core.autocrlf=true  
@@ -78,7 +78,7 @@
     user.email=fhqydp@163.com  
 	
 	全局配置文件
-	c:\Users\zhaoqf\.gitconfig
+	c:\Users\username\.gitconfig
 	[user]
 	name = zhaoqingfu
 	email = fhqydp@163.com
@@ -86,7 +86,7 @@
 	本地目录配置
 	~/.git/config
 
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project/.git (GIT_DIR!)
+	username@hostname MINGW64 /d/git/repository/project/.git (GIT_DIR!)
 	$ cat config
 
 	[core]
@@ -98,35 +98,35 @@
 	        ignorecase = true
 	        hideDotFiles = dotGitOnly
 	[remote "origin"]
-	        url = git1@192.168.130.200:/home/git1/repository/project.git
+	        url = git1@IP:/home/git1/repository/project.git
 	        fetch = +refs/heads/*:refs/remotes/origin/*
 	[branch "master"]
 	        remote = origin
 	        merge = refs/heads/master
 
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project/.git (GIT_DIR!)
+	username@hostname MINGW64 /d/git/repository/project/.git (GIT_DIR!)
 	$ ll
 	total 7
-	-rw-r--r-- 1 zhaoqf None 344 三月  5 03:07 config
-	-rw-r--r-- 1 zhaoqf None  73 三月  5 03:06 description
-	-rw-r--r-- 1 zhaoqf None  23 三月  5 03:06 HEAD
-	drwxr-xr-x 1 zhaoqf None   0 三月  5 03:06 hooks/
-	drwxr-xr-x 1 zhaoqf None   0 三月  5 03:06 info/
-	drwxr-xr-x 1 zhaoqf None   0 三月  5 03:06 objects/
-	drwxr-xr-x 1 zhaoqf None   0 三月  5 03:06 refs/
+	-rw-r--r-- 1 username None 344 三月  5 03:07 config
+	-rw-r--r-- 1 username None  73 三月  5 03:06 description
+	-rw-r--r-- 1 username None  23 三月  5 03:06 HEAD
+	drwxr-xr-x 1 username None   0 三月  5 03:06 hooks/
+	drwxr-xr-x 1 username None   0 三月  5 03:06 info/
+	drwxr-xr-x 1 username None   0 三月  5 03:06 objects/
+	drwxr-xr-x 1 username None   0 三月  5 03:06 refs/
 
 
 	# 5. clone
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
-	$ git clone git1@192.168.130.200:/home/git1/repository/project.git
+	username@hostname MINGW64 /d/git/repository
+	$ git clone git1@IP:/home/git1/repository/project.git
 	Cloning into 'project'...
 	warning: You appear to have cloned an empty repository.
 	Checking connectivity... done.
 	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
+	username@hostname MINGW64 /d/git/repository
 	$ ll
 	total 0
-	drwxr-xr-x 1 zhaoqf None 0 三月  5 04:40 project/
+	drwxr-xr-x 1 username None 0 三月  5 04:40 project/
 
 	$ cat config
 	[core]
@@ -138,7 +138,7 @@
 	        ignorecase = true
 	        hideDotFiles = dotGitOnly
 	[remote "origin"]
-	        url = git1@192.168.130.200:/home/git1/repository/project.git
+	        url = git1@IP:/home/git1/repository/project.git
 	        fetch = +refs/heads/*:refs/remotes/origin/*
 	[branch "master"]
 	        remote = origin
@@ -146,31 +146,31 @@
 
 	# 6. 免密
 	客户端创建 SSH 公钥和私钥
-	C:\Users\zhaoqf\.ssh
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/www/gittest_gitbash
+	C:\Users\username\.ssh
+	username@hostname MINGW64 /d/git/www/gittest_gitbash
 	Git Bash端
 	$ ssh-keygen -t rsa -C "fhqydp@163.com"
 	Generating public/private rsa key pair.
-	Enter file in which to save the key (/c/Users/zhaoqf/.ssh/id_rsa):
-	/c/Users/zhaoqf/.ssh/id_rsa already exists.
+	Enter file in which to save the key (/c/Users/username/.ssh/id_rsa):
+	/c/Users/username/.ssh/id_rsa already exists.
 	Overwrite (y/n)?
 
 	# 服务器
 	[git1@c000 ~]$mkdir -p /home/git1/.ssh
 	# 客户端
 	GIT bash端上传
-	zhaoqf@zhaoqf-HP MINGW64 ~
+	username@hostname MINGW64 ~
 	$ cd
 	
-	zhaoqf@zhaoqf-HP MINGW64 ~
+	username@hostname MINGW64 ~
 	$ pwd
-	/c/Users/zhaoqf
+	/c/Users/username
 	
-	zhaoqf@zhaoqf-HP MINGW64 ~
-	$ ssh git1@192.168.130.200 'cat >> .ssh/authorized_keys' <~/.ssh/id_rsa.pub
-	git1@192.168.130.200's password:
+	username@hostname MINGW64 ~
+	$ ssh git1@IP 'cat >> .ssh/authorized_keys' <~/.ssh/id_rsa.pub
+	git1@IP's password:
 
-	zhaoqf@zhaoqf-HP MINGW64 ~
+	username@hostname MINGW64 ~
 	$
 	 
 	# 服务器
@@ -187,8 +187,8 @@
 > 	修改 .ssh/authorized_keys 文件的权限为 600  
 	
 	# 测试免密clone
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
-	$ git clone git@192.168.130.200:/home/git1/repository/project.git
+	username@hostname MINGW64 /d/git/repository
+	$ git clone git@IP:/home/git1/repository/project.git
 	Cloning into 'project'...
 	fatal: '/home/git1/repository/project.git' does not appear to be a git repository
 	fatal: Could not read from remote repository.
@@ -199,190 +199,168 @@
 	禁止 git 用户 ssh 登录服务器
 	$ /etc/passwd
 	找到：
-	zhaoqf:x:1000:1000:zhaoqf:/home/zhaoqf:/bin/bash
+	username:x:1000:1000:username:/home/username:/bin/bash
 	git:x:1001:1001::/home/git:/bin/bash
 	git1:x:1002:1002::/home/git1:/bin/bash
 
 	修改为
-	zhaoqf:x:1000:1000:zhaoqf:/home/zhaoqf:/bin/bash
+	username:x:1000:1000:username:/home/username:/bin/bash
 	git:x:1001:1001::/home/git:/bin/git-shell
 	git1:x:1002:1002::/home/git1:/bin/git-shell
 二. 基本操作
 -
-	增加
-	$ git clone git1@192.168.130.200:/home/git1/repository/project.git
-	$ touch work
+### 四大位置(工作区 暂存区 版本库 远程库) :
+![](./pic/git/fourlocal.png)  
+### 流转过程:
+![](./pic/git/flow.png)  
+ 	
+	基本流转
+	1. 克隆 clone (push)
+	$ git clone git1@IP:/home/git1/repository/project.git
+
+	2. 查看状态
 	$ git status
+	
+	3. 增加到工作区
+	$ touch work
+	
+	4. 增加到暂存区
 	$ git add work
-	$ git reset HEAD work
+	
+	5. 提交到本地仓库
 	$ git commit -m "work" work
+	
+	6. 上传到远程仓库 
 	$ git push origin master
 
-	撤消
-	工作区:git checkout -- work
+	撤销
+	1. 从工作区撤销
+	$ git checkout -- work
+	
+	2. 从暂存区撤销
 	暂存区:git reset work
+
+	3. 从本地仓库撤销
 	仓库区:git reset -- hard head^
 	
-	1版本回退
-	查看历史版本
+	版本回退
+	1. 查看历史版本
 	$ git log
+	简化形式
 	$ git log --pretty=oneline
 	
-	上一版本 （Head是当前版本）
+	2. 撤销到上一版本 （Head是当前版本）
 	$ git reset --hard head^
 	$ git reset --hard head^^
 	$ git reset --hard head~100
-	指定版本：
+	3. 指定版本：
 	查看以前的操作版本
 	$ git reflog
+	撤销
 	$ git reset --hard 2c9d
+	
+	小技巧:
+	忽略文件
+	创建.gitignore文件
+	$ ll -altrh
+	drwxr-xr-x 1 username None  0 三月  5 08:46 .git/
+	-rw-r--r-- 1 username None  0 三月  5 09:33 .gitignore
+	*.yarml
 
+	clone与push区别
+	clone 是本地没有 repository 时，将远程 repository 整个下载过来。
+	pull 是本地有 repository 时，将远程 repository 里新的 commit 数据(如有的话)下载过来，并且与本地代码merge。
 
-
-二. 远程仓库
+三. 仓库
 -
-	# 1. clone
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
-	$ git clone git1@192.168.130.200:/home/git1/repository/project.git
-	Cloning into 'project'...
-	warning: You appear to have cloned an empty repository.
-	Checking connectivity... done.
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
-	$ ll
-	total 0
-	drwxr-xr-x 1 zhaoqf None 0 三月  5 04:40 project/
-	本地配置文件
-	cat /d/git/repository/project/.git/config
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project/.git (GIT_DIR!)
-	$ cat config
-	[core]
-	        repositoryformatversion = 0
-	        filemode = false
-	        bare = false
-	        logallrefupdates = true
-	        symlinks = false
-	        ignorecase = true
-	        hideDotFiles = dotGitOnly
-	[remote "origin"]
-	        url = git1@192.168.130.200:/home/git1/repository/project.git
-	        fetch = +refs/heads/*:refs/remotes/origin/*
-	[branch "master"]
-	        remote = origin
-	        merge = refs/heads/master
-	# 查看远程仓库
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project (master)
-	$ git remote -v
-	origin  git1@192.168.130.200:/home/git1/repository/project.git (fetch)
-	origin  git1@192.168.130.200:/home/git1/repository/project.git (push)
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project (master)
-	$ git remote show origin
-	* remote origin
-	  Fetch URL: git1@192.168.130.200:/home/git1/repository/project.git
-	  Push  URL: git1@192.168.130.200:/home/git1/repository/project.git
-	  HEAD branch: (unknown)
-	  Local branch configured for 'git pull':
-	    master merges with remote master
+	1. 查看仓库(简称)
+       $ git remote
+    	对应的克隆地址
+	   $ git remote -v
+		查看某个仓库
+	   $ git remote show origin
 
-	基本操作:
-	D:\git\repository\project\model\work.txt
+	2. 创建远程仓库: 
+	   $ git init --bare 
+	   创建本地仓库
+       $ git init
+	
+	3. 增加到远程仓库
+	$ git remote add [shortname] [url]
+	$ git remote add origin 用户名@IP:/path/*.git
+	
+	4. 拉取
+	    拉取全部	
+		$ git clone 用户名@IP:/path/*.git
+		拉取新增的并自己合并
+		$ git pull [remote-name] 
+		拉取新增后自己到合并
+		$ git fetch [remote-name]  
+	5. 推送数据
 
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project (master)
-	$ git status
-	On branch master
+		$ git push origin master
+	    $ git push <远程主机名> <本地分支名>:<远程主机分支名>
+
+	6. 修改
+	$ git remote rename [原名称] [新名称]
 	
-	Initial commit
-	
-	Untracked files:
-	  (use "git add <file>..." to include in what will be committed)
-	
-	        model/
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project (master)
-	$ git commit -m "work.txt"
-	[master (root-commit) d62170c] work.txt
-	 1 file changed, 0 insertions(+), 0 deletions(-)
-	 create mode 100644 model/work.txt
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project (master)
-	$ git push origin master
-	Counting objects: 4, done.
-	Writing objects: 100% (4/4), 248 bytes | 0 bytes/s, done.
-	Total 4 (delta 0), reused 0 (delta 0)
-	To git1@192.168.130.200:/home/git1/repository/project.git
-	 * [new branch]      master -> master
+	7. 删除 
+	git remote rm origin
 
 	
-	# 2. 自建
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
-	$ mkdir project1
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository
-	$ cd project1
-
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1
-	$ git init
-	Initialized empty Git repository in D:/git/repository/project1/.git/
-
-	
-	Untracked files:
-	  (use "git add <file>..." to include in what will be committed)
-
-        model/
-
-	nothing added to commit but untracked files present (use "git add" to track)
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1 (master)
-	$ git add .
-	warning: LF will be replaced by CRLF in model/work.txt.
-	The file will have its original line endings in your working directory.
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1 (master)
-	$ git commit -m "project1"
-	[master (root-commit) 46b8c7b] project1
-	warning: LF will be replaced by CRLF in model/work.txt.
-	The file will have its original line endings in your working directory.
-	 1 file changed, 1 insertion(+)
-	 create mode 100644 model/work.txt
-
-	创建远程仓库并与之关联
-	[git1@c000 ~/repository]$git init --bare project1.git
-	初始化空的 Git 版本库于 /home/git1/repository/project1.git/
-
-	关联
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1 (master)
-	$ git remote
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1 (master)
-	$ git remote add origin 192.168.130.200:/root/home/git1/repository/projetc1.git
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1 (master)
-	$ git remote -v
-	origin  192.168.130.200:/root/home/git1/repository/projetc1.git (fetch)
-	origin  192.168.130.200:/root/home/git1/repository/projetc1.git (push)
-
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1/.git (GIT_DIR!)
-	$ git remote rm origin
-
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1/model (master)
-	$ git remote add origin git1@192.168.130.200:/root/home/git1/repository/project1.git
-	
-	zhaoqf@zhaoqf-HP MINGW64 /d/git/repository/project1/model (master)
-	$ git remote -v
-	origin  git1@192.168.130.200:/home/git1/repository/project1.git (fetch)
-	origin  git1@192.168.130.200:/home/git1/repository/project1.git (push)
-
-	# 3. github
-	$ git remote add origin https://github.com/fhqydp/markdown.git
-	$ git push -u origin master
-	https://github.com/fhqydp/markdown/blob/master/gitPx.MD
-
-四. 冲突处理
+四. 分支管理
 -
-上传测试 2
+	1. 查看分支
+	$ git branch
 
-五. 分支管理
+	2. 创建+切换分支
+	$ git checkout –b name
+
+	3. 创建分支
+	$ git branch name
+
+	4. 切换分支
+	$ git checkout name
+
+	5. 合并某分支到当前分支
+	禁用快速模式
+	$ git merge –no-ff -m ""
+	”Fast forward”模式丢掉分支信息
+	$ git merge name
+	
+	6. 删除分支
+	$ git branch –d name
+    删除远程分支
+	$ git push origin --delete dev 
+
+	7. bug分支: 
+	保留现场: 
+	$ git stash 
+	查看现场
+	$ git stash list
+	恢复并删除
+	$ git stash pop
+	恢复
+	$ git stash apply
+	删除
+	$ git stash drop
+	
+	8. 多人协作:
+	冲突先push: git push
+	指定本地dev分支与远程origin/dev分支的链接:  
+    git branch --set-upstream dev orgin/dev
+	解决冲突,push
+	git push orgin dev
+    查看冲突
+	$ git diff name
+
+五. git 的分支整体预览
 -
-
-
-    
+![aa](./pic/git/git-model.png)
+从上图可以看到主要包含下面几个分支：
+> 
+> master: 主分支，主要用来版本发布。
+> develop：日常开发分支，该分支正常保存了开发的最新代码。  
+> feature：具体的功能开发分支，只与 develop 分支交互。  
+> release：release 分支可以认为是 master 分支的未测试版。比如说某一期的功能全部开发完成，那么就将 develop 分支合并到 release 分支，测试没有问题并且到了发布日期就合并到 master 分支，进行发布。  
+> hotfix：线上 bug 修复分支。  
